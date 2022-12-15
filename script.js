@@ -2,8 +2,10 @@ const countries = document.querySelector('.countries')
 const lang = document.getElementById('search').value
 const btn = document.getElementById('btn')
 
+btn.addEventListener('click', getCountries)
 
-async function getCountries(){
+async function getCountries(event){
+  event.preventDefault()
     countries.innerText = ''
     const search = document.querySelector('.search').value;
     const response = await fetch(`https://restcountries.com/v3.1/lang/${search}`,{
